@@ -1,36 +1,44 @@
-#include<iostream>
+#include <iostream>
+#include <string>
 using namespace std;
-class person{
+ 
+class Person {
     char name[30];
-    public:
-    void read(){
-        cout<<"enter name:"<<endl;
-        cin>>name;
+public:
+    void read() {
+        cout << "Enter name: ";
+        cin >> name;
     }
-    void display(){
-        cout<<"Name:"<<name<<endl;
-    }
-};
-class Sport:public person{
-    int m=50;
-    public:
-    void display(){
-        cout<<m;
-    person::display();
+ 
+    void display() {
+        cout << "Name: " << name << endl;
     }
 };
-class student:public person{
-    public:
-    void diplay(){
-        person::display();
+ 
+class Sport : public Person {
+    int m = 5;
+public:
+    void display() {
+        Person::display();
+        cout << "Sport marks: " << m << endl;
     }
 };
-int main(){
-    student st;
-    Sport sp;
+ 
+class Student : public Person {
+public:
+    void display() {
+        Person::display();
+        cout << "Student information displayed." << endl;
+    }
+};
+ 
+int main() {
+    Student st;
     st.read();
-    sp.read();
     st.display();
+    
+    Sport sp;
+    sp.read();
     sp.display();
     return 0;
 }
